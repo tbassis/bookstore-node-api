@@ -1,38 +1,24 @@
 {
-  "name": "",
+  "name": "bookstore-node-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Building a node api to study",
+  "main": "server.js",
   "type": "module",
-  "license": "AGPL-version-3.0",
-  "private": false,
-  "engines": {
-    "node": ">= 14.0.0",
-    "npm": ">= 6.0.0"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "homepage": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/tbassis/bookstore-node-api.git"
   },
-  "bugs": "",
-  "keywords": [],
-  "author": {
-    "name": "",
-    "email": "",
-    "url": ""
+  "author": "Tulio Assis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tbassis/bookstore-node-api/issues"
   },
-  "contributors": [
-
-  ],
-  "scripts": {
-    "dev": "",
-    "test": ""
-  },
+  "homepage": "https://github.com/tbassis/bookstore-node-api#readme",
   "dependencies": {
-
-  },
-  "devDependencies": {
-
+    "express": "^4.21.1"
   }
 }
