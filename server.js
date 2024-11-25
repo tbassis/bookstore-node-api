@@ -1,4 +1,7 @@
 import express from "express";
+import connectToDatabase from "./src/config/dbconfig.js";
+
+await connectToDatabase(process.env.CONNECTIONDB_STRING)
 
 // Creates an Express application
 const app = express();
@@ -12,3 +15,11 @@ app.listen(3000, () => {
     console.log("Server listening...");
 });
 
+
+app.get("/books", (req, res) => {
+    res.status(200).send("All books in the database");
+});
+
+app.get("/books/:id", (req, res) => {
+    res.status(200).send("Get book by id");
+});
