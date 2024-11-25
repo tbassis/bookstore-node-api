@@ -1,5 +1,5 @@
 import express from "express";
-import { listAllBooks, listAllAuthors, createNewBook } from "../controllers/postController.js";
+import { listAllBooks, listAllAuthors, createNewBook, createNewAuthor } from "../controllers/postController.js";
 
 const routes = (app) => {
     // defines to the server to return a json object to the client 
@@ -10,6 +10,7 @@ const routes = (app) => {
      app.post("/books", createNewBook)
 
      app.get("/authors", listAllAuthors);
+     app.post("/author", createNewAuthor);
 }
 
 export default routes;

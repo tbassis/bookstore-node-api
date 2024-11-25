@@ -29,3 +29,8 @@ export async function postNewBook(newBook) {
     const booksCollection = getCollection("books")
     return booksCollection.insertOne(newBook)
 }
+
+export async function postNewAuthor(newAuthor) {
+    const authorCollection = getCollection("authors");
+    return authorCollection.insertOne(newAuthor)
+};
