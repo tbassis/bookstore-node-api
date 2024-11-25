@@ -1,10 +1,10 @@
 import express from "express";
-import connectToDatabase from "./src/config/dbconfig.js";
-
-await connectToDatabase(process.env.CONNECTIONDB_STRING)
+import routes from "./src/routes/postRoutes.js";
 
 // Creates an Express application
 const app = express();
+
+routes(app);
 
 // Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option.
 app.use(express.json());
