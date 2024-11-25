@@ -1,5 +1,5 @@
 import express from "express";
-import listAllBooks from "../controllers/postController.js";
+import { listAllBooks, listAllAuthors } from "../controllers/postController.js";
 
 const routes = (app) => {
     // defines to the server to return a json object to the client 
@@ -7,6 +7,8 @@ const routes = (app) => {
 
      // index the function that will be running when the server call that route
      app.get("/books", listAllBooks);
+
+     app.get("/authors", listAllAuthors);
 }
 
 export default routes;
