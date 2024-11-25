@@ -1,4 +1,7 @@
 import express from "express";
+import connectToDatabase from "./src/config/dbconfig.js";
+
+await connectToDatabase(process.env.CONNECTIONDB_STRING)
 
 // Creates an Express application
 const app = express();
