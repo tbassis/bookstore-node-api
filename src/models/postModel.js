@@ -5,7 +5,8 @@ import conectarAoBanco from "../config/dbconfig.js";
 // stores all data related to the database cluster connection
 const connection = await conectarAoBanco(process.env.CONNECTIONDB_STRING)
 
-async function getAllBooks() {
+// connect to bookstoreDB, get the entire collection of books and return to the controller
+export async function getAllBooks() {
 	// connect to the specific database  
     const db = connection.db("bookstore-node-api");
 
@@ -16,4 +17,11 @@ async function getAllBooks() {
     return collection.find().toArray();
 }
 
-export default getAllBooks;
+// connect to bookstoreDB, get the entire collection of authors and return to the controller
+export async function getAllAuthors() {
+    const db = connection.db("bookstore-node-api");
+
+    const collection = db.collection("authors");
+
+    return collection.find().toArray();
+}
