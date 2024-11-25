@@ -12,13 +12,20 @@ function getCollection(collectionName) {
 	// stores a collection from the database
     const collection = db.collection(collectionName);
 
-    return collection.find().toArray();
+    return collection;
 }
 
 export async function getAllBooks() {
-    return getCollection("books")
+    const booksCollection = getCollection("books")
+    return booksCollection.find().toArray()
 }
 
 export async function getAllAuthors() {
-    return getCollection("authors");
+    const authorsCollection = getCollection("authors");
+    return authorsCollection.find().toArray()
+}
+
+export async function postNewBook(newBook) {
+    const booksCollection = getCollection("books")
+    return booksCollection.insertOne(newBook)
 }
