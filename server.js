@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 // Returns a HTTP server that listen port 3000 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server listening...");
 });
 
