@@ -1,5 +1,6 @@
 import express from "express";
-import routes from "./src/routes/postRoutes.js";
+import bookRouter from "./src/router/books.js";
+import routes from "./src/router/postRoutes.js";
 
 // Creates an Express application
 const app = express();
@@ -14,6 +15,9 @@ app.use(express.json());
 app.listen(3000, () => {
     console.log("Server listening...");
 });
+
+// api routes
+app.use('/api/books', bookRouter)
 
 
 app.get("/books", (req, res) => {
