@@ -14,12 +14,3 @@ app.use(express.json());
 app.listen(3000, () => {
     console.log("Server listening...");
 });
-
-
-app.get("/books", (req, res) => {
-    res.status(200).send("All books in the database");
-});
-
-app.get("/books/:id", (req, res) => {
-    res.status(200).send("Get book by id");
-});
