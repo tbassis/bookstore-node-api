@@ -1,5 +1,6 @@
 import express from "express";
 import bookRouter from "./src/router/books.js";
+import authorsRouter from "./src/router/authors.js";
 import routes from "./src/router/postRoutes.js";
 
 // Creates an Express application
@@ -17,7 +18,8 @@ app.listen(3000, () => {
 });
 
 // api routes
-app.use('/api/books', bookRouter)
+app.use("/api/books", bookRouter);
+app.use("/api/authors", authorsRouter);
 
 
 app.get("/books", (req, res) => {
