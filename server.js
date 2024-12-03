@@ -1,5 +1,7 @@
 import express from "express";
 import routes from "./src/routes/postRoutes.js";
+import swaggerUi from "swagger-ui-express"
+import swaggerDocs from "./src/config/swagger.js";
 
 // Creates an Express application
 const app = express();
@@ -13,14 +15,8 @@ app.use(express.json());
 
 // Returns a HTTP server that listen port 3000 
 app.listen(port, () => {
-    console.log("Server listening...");
+    console.log(`Server listening and running at http://localhost:${port}`);
+    swaggerDocs(app, port)
 });
 
-
-app.get("/books", (req, res) => {
-    res.status(200).send("All books in the database");
-});
-
-app.get("/books/:id", (req, res) => {
-    res.status(200).send("Get book by id");
-});
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
