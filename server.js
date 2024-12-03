@@ -3,6 +3,7 @@ import routes from "./src/routes/postRoutes.js";
 
 // Creates an Express application
 const app = express();
+const port = process.env.PORT || 3000;
 
 routes(app);
 
@@ -11,7 +12,7 @@ app.use(express.json());
 
 
 // Returns a HTTP server that listen port 3000 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log("Server listening...");
 });
 
