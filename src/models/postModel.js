@@ -5,15 +5,32 @@ import conectarAoBanco from "../config/dbconfig.js";
 // stores all data related to the database cluster connection
 const connection = await conectarAoBanco(process.env.CONNECTIONDB_STRING)
 
-async function getAllBooks() {
-	// connect to the specific database  
-    const db = connection.db("bookstore-node-api");
+function getCollection(collectionName) {
+    // connect to the specific database  
+    const db = connection.db(process.env.MONGODB_NAME);
 
-	// stores a collection from the Database
-    const collection = db.collection("books");
+	// stores a collection from the database
+    const collection = db.collection(collectionName);
 
-	// filter — The filter predicate. If unspecified, then all documents in the collection will match the predicate
-    return collection.find().toArray();
+    return collection;
 }
 
-export default getAllBooks;
+export async function getAllBooks() {
+    const booksCollection = getCollection("books")
+    return booksCollection.find().toArray()
+}
+
+export async function getAllAuthors() {
+    const authorsCollection = getCollection("authors");
+    return authorsCollection.find().toArray()
+}
+
+export async function postNewBook(newBook) {
+    const booksCollection = getCollection("books")
+    return booksCollection.insertOne(newBook)
+}
+
+export async function postNewAuthor(newAuthor) {
+    const authorCollection = getCollection("authors");
+    return authorCollection.insertOne(newAuthor)
+};

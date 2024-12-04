@@ -1,25 +1,15 @@
 import express from "express";
-import routes from "./src/routes/postRoutes.js";
+import swaggerDocs from "./src/config/swagger.js";
+import routes from "./src/router/index.js";
 
 // Creates an Express application
 const app = express();
+const port = process.env.PORT || 3000;
 
 routes(app);
 
-// Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option.
-app.use(express.json());
-
-
 // Returns a HTTP server that listen port 3000 
-app.listen(3000, () => {
-    console.log("Server listening...");
-});
-
-
-app.get("/books", (req, res) => {
-    res.status(200).send("All books in the database");
-});
-
-app.get("/books/:id", (req, res) => {
-    res.status(200).send("Get book by id");
+app.listen(port, () => {
+    console.log(`Server listening and running at http://localhost:${port}`);
+    swaggerDocs(app, port)
 });
