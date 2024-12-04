@@ -54,26 +54,24 @@ authorsRouter.route("/").get(listAllAuthors)
 *       content:
 *         application/json:
 *           schema:
-*             type: array
-*             items:
-*               type: object
-*               required:
-*                 - name
-*                 - nationality
-*                 - born
-*               properties:
-*                 name:
-*                   type: string
-*                   example: Machado de Assis
-*                 nationality:
-*                   type: string
-*                   example: Brasileiro
-*                 born:
-*                   type: integer
-*                   example: 1839
-*                 died:
-*                   type: integer
-*                   example: 1908
+*             type: object
+*             properties:
+*               name:
+*                 type: string
+*                 example: Machado de Assis
+*               nationality:
+*                 type: string
+*                 example: Brasileiro
+*               born:
+*                 type: integer
+*                 example: 1839
+*               died:
+*                 type: integer
+*                 example: 1908
+*             required:
+*               - name
+*               - nationality
+*               - born
 *     responses:
 *       201:
 *         description: success

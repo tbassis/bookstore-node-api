@@ -70,47 +70,45 @@ bookRouter.route("/").get(listAllBooks)
 *       content:
 *         application/json:
 *           schema:
-*             type: array
-*             items:
-*               type: object
-*               required:
-*                 - title
-*                 - author
-*                 - year
-*                 - genre
-*                 - publisher
-*                 - synopsis
-*                 - isbn
-*                 - pages
-*                 - language
-*               properties:
-*                 title:
-*                   type: string
-*                   example: O Senhor dos Anéis
-*                 author:
-*                   type: string
-*                   example: J.R.R. Tolkien
-*                 year:
-*                   type: integer
-*                   example: 1954
-*                 genre:
-*                   type: string
-*                   example: Fantasia
-*                 publisher:
-*                   type: string
-*                   example: Martins Fontes
-*                 synopsis:
-*                   type: string
-*                   example: Uma jornada épica
-*                 isbn:
-*                   type: string
-*                   example: 9788533624303
-*                 pages:
-*                   type: integer
-*                   example: 1170
-*                 language:
-*                   type: string
-*                   example: Português
+*             type: object
+*             properties:
+*               title:
+*                 type: string
+*                 example: O Senhor dos Anéis
+*               author:
+*                 type: string
+*                 example: J.R.R. Tolkien
+*               year:
+*                 type: integer
+*                 example: 1954
+*               genre:
+*                 type: string
+*                 example: Fantasia
+*               publisher:
+*                 type: string
+*                 example: Martins Fontes
+*               synopsis:
+*                 type: string
+*                 example: Uma jornada épica
+*               isbn:
+*                 type: string
+*                 example: 9788533624303
+*               pages:
+*                 type: integer
+*                 example: 1170
+*               language:
+*                 type: string
+*                 example: Português
+*             required:
+*               - title
+*               - author
+*               - year
+*               - genre
+*               - publisher
+*               - synopsis
+*               - isbn
+*               - pages
+*               - language
 *     responses:
 *       201:
 *         description: success
