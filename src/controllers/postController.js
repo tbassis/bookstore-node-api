@@ -15,7 +15,7 @@ export async function createNewBook(req, res) {
     
     try {
         const bookCreated = await postNewBook(newBook);
-        res.status(200).json(bookCreated);
+        res.status(201).json(bookCreated);
     } catch (error) {
         console.log(error.message);
         res.status(500).json({"error": "Fail to create a new book in the database"})
@@ -27,7 +27,7 @@ export async function createNewAuthor(req, res) {
 
     try {
         const authorCreated = await postNewAuthor(newAuthor);
-        res.status(200).json(authorCreated);
+        res.status(201).json(authorCreated);
     } catch (error) {
         console.log(error.message);
         res.status(500).json({ "error": "Fail to create a new author." })
