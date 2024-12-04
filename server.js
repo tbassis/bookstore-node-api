@@ -1,5 +1,4 @@
 import express from "express";
-import swaggerUi from "swagger-ui-express"
 import swaggerDocs from "./src/config/swagger.js";
 import routes from "./src/router/index.js";
 
@@ -14,5 +13,3 @@ app.listen(port, () => {
     console.log(`Server listening and running at http://localhost:${port}`);
     swaggerDocs(app, port)
 });
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));

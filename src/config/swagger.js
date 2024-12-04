@@ -23,17 +23,17 @@ const options = {
     ]
   },
   // looks for configuration in specified directories
-  apis: ['./routes/*.js'],
+  apis: ['./src/router/*.js'],
 };
 
 const swaggerSpec = swaggerJsdoc(options)
 
 function swaggerDocs(app, port) {
   // Swagger Page
-  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
   // Documentation in JSON format
-  app.get("/docs.json", (req, res) => {
+  app.get("/api-docs.json", (req, res) => {
     res.setHeader("Content-Type", "application/json")
     res.send(swaggerSpec)
   })
